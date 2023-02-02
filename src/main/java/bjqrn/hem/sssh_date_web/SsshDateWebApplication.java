@@ -11,5 +11,4 @@ public class SsshDateWebApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SsshDateWebApplication.class, args);
 	}
-
 }
