@@ -27,15 +27,10 @@ public class DateController {
     }
 
     @GetMapping("/date")
-    public DateResponse getDate() {
+    public DateResponse getDate() throws UnsupportedEncodingException {
         String date = dateGenerator.getDate();
-        try {
-            byte[] encoded = encryptionUtil.encrypString(date);
-            String decoded = encryptionUtil.decrypString(encoded);
-            return new DateResponse(decoded);
-        } catch (UnsupportedEncodingException e) {
-            log.error(e.getMessage());
-        }
-        return null;
+        byte[] encoded = encryptionUtil.encrypString(date);
+        log.info("Get Date");
+        return new DateResponse(encoded);
     }
 }
