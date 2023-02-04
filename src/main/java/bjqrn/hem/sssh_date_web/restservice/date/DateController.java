@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,10 +28,13 @@ public class DateController {
     }
 
     @GetMapping("/date")
+    @CrossOrigin(origins = "*")
     public DateResponse getDate() throws UnsupportedEncodingException {
         String date = dateGenerator.getDate();
-        byte[] encoded = encryptionUtil.encrypString(date);
-        log.info("Get Date");
+        //byte[] encoded = encryptionUtil.encrypString(date);
+        String encoded = encryptionUtil.encryptString_g(date);
+        log.info("date: "+ date);
+        log.info(String.format("Get date: %s", encoded));
         return new DateResponse(encoded);
     }
 }
