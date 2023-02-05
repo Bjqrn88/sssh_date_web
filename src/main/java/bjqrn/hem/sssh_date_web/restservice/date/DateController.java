@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import bjqrn.hem.sssh_date_web.schedulingtasks.DateGenerator;
 import bjqrn.hem.sssh_date_web.util.EncryptionUtil;
 
 @RestController

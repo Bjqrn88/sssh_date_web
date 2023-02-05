@@ -1,4 +1,4 @@
-package bjqrn.hem.sssh_date_web.schedulingtasks;
+package bjqrn.hem.sssh_date_web.restservice.date;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
