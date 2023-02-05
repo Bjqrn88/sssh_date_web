@@ -31,10 +31,8 @@ public class DateController {
     @CrossOrigin(origins = "*")
     public DateResponse getDate() throws UnsupportedEncodingException {
         String date = dateGenerator.getDate();
-        //byte[] encoded = encryptionUtil.encrypString(date);
         String encoded = encryptionUtil.encryptString_g(date);
-        log.info("date: "+ date);
-        log.info(String.format("Get date: %s", encoded));
+        log.info(String.format("Get date - Date: %s, Encoded: %s", date, encoded));
         return new DateResponse(encoded);
     }
 }
