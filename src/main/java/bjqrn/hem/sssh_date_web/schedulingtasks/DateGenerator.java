@@ -13,7 +13,7 @@ public class DateGenerator {
 
     private static String dateString;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 60000)
     private void generateDateString() {
         dateString = dateFormat.format(new Date());
     }

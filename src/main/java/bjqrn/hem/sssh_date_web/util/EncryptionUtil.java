@@ -96,7 +96,7 @@ public class EncryptionUtil {
 
     public String encryptString_g(String str) {
         try {
-            String encodedKey = encodeKey(PASSWORD);
+            String encodedKey = "QkFOQU5fQ0FLRV9NQU4xNg==";//encodeKey(PASSWORD);
             log.info("encodedKey: "+ encodedKey);
             Key key = generatKey(encodedKey);
             Cipher cipher = Cipher.getInstance("AES");
