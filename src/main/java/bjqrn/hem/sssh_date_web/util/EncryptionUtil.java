@@ -14,20 +14,25 @@ import org.springframework.stereotype.Component;
 @Component
 public class EncryptionUtil {
     private static final Logger log = LoggerFactory.getLogger(EncryptionUtil.class);
+
+    // Secret
     @Value("${secretKey}")
     private String secret;
 
+    // Generate a Key use the init the Chipher instance
     private Key generatKey(String secret) {
         byte[] decoded = Base64.getDecoder().decode(secret.getBytes());
         Key key = new SecretKeySpec(decoded, "AES");
         return key;
     }
 
+    // Encode a String
     // private String encodeKey(String str) {
     //     byte[] encoded = Base64.getEncoder().encode(str.getBytes());
     //     return new String(encoded);
     // }
 
+    // Encrypt a string using AES
     public String encryptString_g(String str) {
         try {
             Key key = generatKey(secret);
@@ -42,6 +47,7 @@ public class EncryptionUtil {
         return null;
     }
 
+    // Decrypt a string using AES
     public String decryptString_g(String str) {
         try {
             Key key = generatKey(secret);

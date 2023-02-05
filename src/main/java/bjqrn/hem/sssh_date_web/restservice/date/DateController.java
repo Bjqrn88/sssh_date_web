@@ -27,12 +27,16 @@ public class DateController {
         this.encryptionUtil = encryptionUtil;
     }
 
+    // Handle incomming GET requests for /date
     @GetMapping("/date")
     @CrossOrigin(origins = "*")
     public DateResponse getDate() throws UnsupportedEncodingException {
+        // Get the date from DateGenerator
         String date = dateGenerator.getDate();
-        String encoded = encryptionUtil.encryptString_g(date);
-        log.info(String.format("Get date - Date: %s, Encoded: %s", date, encoded));
-        return new DateResponse(encoded);
+        // Encrypt the date using EncryptionUtil
+        String encrypted = encryptionUtil.encryptString_g(date);
+        // Log the date in clear text and encrypted
+        log.info(String.format("Get date - Date: %s, Encrypted: %s", date, encrypted));
+        return new DateResponse(encrypted);
     }
 }
